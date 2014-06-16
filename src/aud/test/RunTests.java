@@ -15,7 +15,10 @@ import org.junit.runners.*;
       AVLTreeTest.class,
       A234TreeTest.class,
       RedBlackTreeTest.class,
-      BTreeTest.class
+      BTreeTest.class,
+      SparseMatrixCSTest.class,
+      AdjacencyMatrixTest.class,
+      GraphTest.class
     }
 )
 public class RunTests {

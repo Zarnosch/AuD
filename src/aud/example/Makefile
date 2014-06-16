@@ -1,3 +1,3 @@
 include ../Makefile.in
 
-SUBDIRS = expr hash # graph grid
+SUBDIRS = expr hash graph grid
