@@ -1,0 +1,8 @@
+1. a) auf papier
+   b) 	-Gerichtete Kanten definieren eine partielle Ordnung
+	-der Graph muss azyklisch sein
+	-keine totale Ordnung (ähnlich Heap)
+	-Aufgaben, die vorher erledigt werden müssen, werden nach oben gezogen, allerdings werden nur abhängige Graphen duch einen gerichteten Pfeil von oben nach unten gekennzeichnet
+	-Topologisches Sortieren kann auch über einen MinHeap realisiert werden, benötigt dann aber ein paar extra Zeilen Code um die relative Ordnung unter den Elementen beizubehalten
+
+2. 4 Kanten müssten mindestens entfert werden, da vorher immer ein Zyklus möglch wäre und damit keine topologische Ordnung möglich wäre ( ähnlich der Frage was zu erst da war, das Ei oder das Huhn)

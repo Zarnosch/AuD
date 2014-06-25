@@ -1,0 +1,106 @@
+2. a)
+
+Ich merke mir für alle Knoten zuerst die Länge "unendlich = e" und speichere mir nebenbei mit einer"-1" ab, ob ich einen Knoten schon besucht habe
+
+	| 0 | 1 | 2 | 3 | 4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | e | e | e | e | e |		|   |-1 |-1 |-1 |-1 |-1 |
+	|   |   |   |   |   |   |		|   |   |   |   |   |   |
+
+Ich gehe von der 0 zur 1 und merke mir dort vor, wie weit ich gelaufen bin und welchen Knoten ich besucht habe und woher, in diesem Falle ist es die 0
+
+	| 0 | 1 | 2 | 3 | 4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | e | e | e | e |		|   | 0 |-1 |-1 |-1 |-1 |
+	|   |   |   |   |   |   |		|   |   |   |   |   |   |
+
+Dies mache ich für die Knoten 2 und 3 ebenfalls
+
+	| 0 | 1 | 2 | 3 | 4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | 5 | 3 | e | e |		|   | 0 | 0 | 0 |-1 |-1 |
+	|   |   |   |   |   |   |		|   |   |   |   |   |   |
+
+Anschließend gehe ich von der 1 weiter, der einzige Knoten der in Frage kommt ist die 5, addiere den Weg 2+4 hinzu bei der 5 und trage ein, dass ich diesen vom Knoten 1 besucht habe
+
+
+	| 0 | 1 | 2 | 3 | 4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | 5 | 3 | e | 6 |		|   | 0 | 0 | 0 |-1 | 1 |
+	|   |   |   |   |   |   |		|   |   |   |   |   |   |
+
+Weiter geht es mit der 2, diese testet mit den Knoten 3, 4, 5. Da die 4 wurde noch nicht besucht und wird wie bei 1 -> 5 gleich behandelt. 
+Bei der 3 unterscheide ich, ob 0 -> 3 schneller ist als 0 -> 2 -> 3.(3 < 6) Da dies nicht der Fall ist, bleibt für die 3 alles gleich
+Bei der 5 unterscheide ich, ob 0 -> 1 -> 5 schneller ist als 0 -> 2 -> 5.(6 < 13) Da dies nicht der Fall ist, bleibt für die 5 alles gleich
+
+	| 0 | 1 | 2 | 3 |  4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | 5 | 3 | 12 | 6 |		|   | 0 | 0 | 0 | 2 | 1 |
+	|   |   |   |   |    |   |		|   |   |   |   |   |   |
+
+Nun schaue ich mir den 3ten Knoten an, dieser steht in Verbindung zu 2 und 5, also teste ich, ob der Weg über den Knoten 3 schneller ist als die bisherigen
+0 -> 3 -> 2 (3+1) = 4. in der 2 steht 5. Also tausche ich die Strecke und speicher mir die 3 als Knoten, von dem ich gekommen bin
+0 -> 3 -> 5 (3+6) = 9. in der 5 steht 6. Also tausche ich nicht, da der Weg über die 3 länger ist
+
+	| 0 | 1 | 2 | 3 |  4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | 4 | 3 | 12 | 6 |		|   | 0 | 3 | 0 | 2 | 1 |
+	|   |   |   |   |    |   |		|   |   |   |   |   |   |
+
+Da ich die 2 verändert habe muss ich nun noch ein mal Prüfen, wie weit es zu den Knoten 4 und 5 ist
+0 -> 3 -> 2 -> 4 = 11 Da die 11 < 12 ist, schreibe ich als neue Strecke für die 4 11 auf. Der Knoten vom dem ich komme hat sich nicht verändert
+0 -> 3 -> 2 -> 5 = 12 Da 12 > 6 ist, verändere ich nichts
+
+	| 0 | 1 | 2 | 3 |  4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | 4 | 3 | 11 | 6 |		|   | 0 | 3 | 0 | 2 | 1 |
+	|   |   |   |   |    |   |		|   |   |   |   |   |   |
+
+Nun schaue ich mir den 4.ten Knoten an, dieser steht in verbindung mit der 5 und der 2, da beide Strecken länger sind, als die eingetragenen, verändere ich nichts
+Das Gleiche gilt für den 5.ten Knoten, dieser steht mit der 2, 3 und 4 in verbindung und ist auf allen Strecken länger.
+Daher sind die kürzesten Wege für diesen Graphen in dieser tabelle links unten zu finden, rechte Tabelle gibt an, über welchen Knoten ich gegangen bin.
+
+	| 0 | 1 | 2 | 3 |  4 | 5 |		| 0 | 1 | 2 | 3 | 4 | 5 |
+        -------------------------		-------------------------
+	| 0 | 2 | 4 | 3 | 11 | 6 |		|   | 0 | 3 | 0 | 2 | 1 |
+	|   |   |   |   |    |   |		|   |   |   |   |   |   |
+
+
+b)
+	
+              |0|
+
+           /   |   \
+          /1   |2   \3
+         /     |     \
+     
+      |1|     |2|     |3|
+   
+        \      |      /
+         \5    |3    /1
+          \    |    /
+
+              |4| 
+
+  	Eingehende Kanten zu k jeweils mit k, bzw k+1 gewichtet
+  	Ausgehende Kanten bekommt umgekehrte Gewichtung + 1
+
+
+Nicht korrekt arbeiten der Graph mit negativen Kantengewicht:
+
+               |1|
+
+             /     \
+            /1      \4
+           /         \
+
+         |2|         |3|
+
+           \         /
+            \2      /-3
+             \     /
+             
+               |4|  
+
+Ergebnis hier: 3 über die Knoten 1 -> 2 -> 4
+Richtiges Ergebnis wäre 1 mit 1 -> 3 -> 4
